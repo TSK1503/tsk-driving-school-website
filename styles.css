@@ -234,6 +234,12 @@ nav.nav-links a.active { color: var(--navy); background: rgba(232,169,59,0.16); 
   color: var(--white);
   padding: 84px 0 96px;
 }
+.hero.hero-photo {
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(232,169,59,0.15), transparent 60%),
+    linear-gradient(160deg, rgba(6,21,48,0.92) 0%, rgba(6,21,48,0.82) 100%),
+    var(--hero-img) center/cover no-repeat;
+}
 .hero .container {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -539,3 +545,128 @@ footer.site-footer {
   margin-bottom: 32px;
 }
 .placeholder-note strong { color: var(--gold-dark); }
+
+/* ---------- Photo hero (Timperley-style) ---------- */
+.photo-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.photo-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,21,48,0.80) 0%, rgba(6,21,48,0.55) 50%, rgba(6,21,48,0.85) 100%);
+}
+.photo-hero .container { position: relative; z-index: 1; }
+.photo-hero h1 { color: var(--white); }
+.photo-hero p { color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto; }
+
+/* Stat strip with real numbers */
+.stat-strip {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.stat-strip .stat { text-align: center; }
+.stat-strip .stat .num { font-size: 2.4rem; font-weight: 800; color: var(--gold); line-height: 1; }
+.stat-strip .stat .label { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 6px; }
+
+/* Photo banner course block (photo + price statement, Timperley-style) */
+.course-banner {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.course-banner .photo {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.course-banner .photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,31,68,0.05) 0%, rgba(10,31,68,0.75) 100%);
+}
+.course-banner .photo-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 24px 28px;
+  color: var(--white);
+}
+.course-banner .photo-caption .tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.course-banner .photo-caption h3 {
+  color: var(--white);
+  font-size: 1.6rem;
+  margin: 0;
+}
+.course-banner .details {
+  background: var(--white);
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.course-banner .details p { margin: 0; color: var(--muted); font-size: 0.92rem; max-width: 480px; }
+
+@media (max-width: 620px) {
+  .course-banner .photo { height: 240px; }
+}
+
+/* Photo-backed section band */
+.photo-band {
+  position: relative;
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.photo-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(6,21,48,0.88) 0%, rgba(6,21,48,0.35) 65%, rgba(6,21,48,0.1) 100%);
+}
+.photo-band .content { position: relative; z-index: 1; padding: 40px; color: var(--white); max-width: 480px; }
+.photo-band .content h2 { color: var(--white); }
+.photo-band .content p { color: rgba(255,255,255,0.85); }
+
+/* Gallery photo tiles (real images) */
+.gallery-photo {
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.gallery-photo:hover img { transform: scale(1.06); }
