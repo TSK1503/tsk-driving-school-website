@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tskdrivingschool.co.uk/sitemap.xml
